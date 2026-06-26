@@ -8,6 +8,23 @@ public class BackstagePassesImpl extends ProductBase implements Product {
 
     @Override
     public void updateQuality() {
+        if(getQuality() >= 50) {
+            return;
+        }
 
+        if(getSellIn() <= 0) {
+            setQuality(getQuality() - getQuality());
+            return;
+        }
+
+        if(getSellIn() <= 5) {
+            setQuality(getQuality() + 3);
+        } else if(getSellIn() <= 10) {
+            setQuality(getQuality() + 2);
+        } else {
+            setQuality(getQuality() + 1);
+        }
+
+        setSellIn(getSellIn() - 1);
     }
 }

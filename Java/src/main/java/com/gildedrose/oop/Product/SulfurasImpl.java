@@ -7,6 +7,6 @@ public class SulfurasImpl extends ProductBase implements Product {
 
     @Override
     public void updateQuality() {
-
+        System.out.println("this is legendary items not for sale and immortal quality");
     }
 }

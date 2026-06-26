@@ -7,6 +7,15 @@ public class AgedBrieImpl extends ProductBase implements Product {
 
     @Override
     public void updateQuality() {
+        if(getQuality() >= 50) {
+            return;
+        }
 
+        setQuality(getQuality() + 1);
+        setSellIn(getSellIn() - 1);
+
+        if(getSellIn() < 0) {
+            setQuality(getQuality() + 1);
+        }
     }
 }
