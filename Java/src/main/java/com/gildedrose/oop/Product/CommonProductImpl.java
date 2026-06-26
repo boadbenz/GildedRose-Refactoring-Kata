@@ -1,12 +1,17 @@
 package com.gildedrose.oop.Product;
 
 public class CommonProductImpl extends ProductBase implements Product {
-    public CommonProductImpl(int quality, int sellIn) {
-        super(quality, sellIn);
+    public CommonProductImpl(String name, int quality, int sellIn) {
+        super(name, quality, sellIn);
     }
 
     @Override
     public void updateQuality() {
-        throw new RuntimeException("not implement yet");
+        setQuality(getQuality() - 1);
+        setSellIn(getSellIn() - 1);
+
+        if(getSellIn() < 0) {
+            setQuality(getQuality() - getQuality());
+        }
     }
 }

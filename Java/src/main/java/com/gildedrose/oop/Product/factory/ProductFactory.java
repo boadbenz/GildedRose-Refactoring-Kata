@@ -10,13 +10,13 @@ public class ProductFactory {
     public static Product getProduct(String productName, int quality, int sellIn) {
         switch (productName) {
             case AGED_BRIE:
-                return new AgedBrieImpl(quality, sellIn);
+                return new AgedBrieImpl(productName, quality, sellIn);
             case BACKSTAGE_PASSED:
-                return new BackstagePassesImpl(quality, sellIn);
+                return new BackstagePassesImpl(productName, quality, sellIn);
             case SULFURAS:
-                return new SulfurasImpl(quality, sellIn);
+                return new SulfurasImpl(productName, quality, sellIn);
             default:
-                return new CommonProductImpl(quality, sellIn);
+                return new CommonProductImpl(productName, quality, sellIn);
         }
     }
 

@@ -1,5 +1,8 @@
 package com.gildedrose.oop;
 
+import com.gildedrose.oop.Product.Product;
+import com.gildedrose.oop.Product.factory.ProductFactory;
+
 class GildedRose {
     Item[] items;
 
@@ -9,13 +12,18 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
+
+            Product product = ProductFactory.getProduct(items[i].name, items[i].quality, items[i].sellIn);
+            product.updateQuality();
+            items[i] = product.convertToItem();
+
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (items[i].quality > 0) {
-                    if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                        items[i].quality = items[i].quality - 1;
-                    }
-                }
+//                if (items[i].quality > 0) {
+//                    if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+//                        items[i].quality = items[i].quality - 1;
+//                    }
+//                }
             } else {
                 if (items[i].quality < 50) {
                     items[i].quality = items[i].quality + 1;
@@ -36,7 +44,8 @@ class GildedRose {
                 }
             }
 
-            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+            if (items[i].name.equals("Aged Brie")
+                || items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 items[i].sellIn = items[i].sellIn - 1;
             }
 
