@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.oop;
 
 class GildedRose {
     Item[] items;

@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.oop;
 
 import org.junit.jupiter.api.Test;
 
